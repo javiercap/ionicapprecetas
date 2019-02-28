@@ -1,0 +1,36 @@
+<ion-header >
+  <ion-navbar>
+    <div style="padding: 2%; text-align: center;"> <img src="assets/imgs/logo_peabody_blanco.png" title="Recetas Peabody" alt="Recetas Peabody" style="width: 70%; max-width: 400px;"></div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page"   >
+
+
+<ion-slides pager>
+  <ion-slide >
+    <img src="assets/imgs/Recetas-Maxi_01.jpg" title="Recetas Peabody" alt="Recetas Peabody" >
+  </ion-slide>
+
+  <ion-slide >
+    <img src="assets/imgs/Recetas-Maxi_02.jpg" title="Recetas Peabody" alt="Recetas Peabody" >
+  </ion-slide>
+
+  <ion-slide >
+    <img src="assets/imgs/slide_3.jpg" title="Recetas Peabody" alt="Recetas Peabody" >
+  </ion-slide>
+</ion-slides>
+
+
+  <ion-card *ngFor="let receta of recetas;let i=index;" (click)="irDetalle(receta)">
+
+
+    <img src="https://s3.amazonaws.com/nv-almadechef/recetas/{{receta.zona}}/{{receta.imagen}}{{receta.extension}}"  />
+
+
+    <div class="card-title">{{receta.titulo}}<br> <h2 >{{receta.subtitulo}}</h2></div>
+    <div class="card-subtitle"></div>
+
+
+  </ion-card>
+</ion-content>

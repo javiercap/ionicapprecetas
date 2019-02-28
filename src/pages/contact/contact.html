@@ -1,0 +1,101 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title>
+    <div style="padding: 2%; text-align: center;"> <img src="assets/imgs/logo_peabody_blanco.png" title="Recetas Peabody" alt="Recetas Peabody" style="width: 70%; max-width: 400px;"></div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+<ion-card-title>
+      Alta Garantía
+</ion-card-title>
+
+
+
+
+
+
+    <form  [formGroup]="myForm" (ngSubmit)="presentAlert();" novalidate>
+    	<div padding></div>
+
+	      <ion-item>
+	        <ion-label fixed>Nombre</ion-label>
+	        <ion-input formControlName="nombre" type="text" [(ngModel)]="todo.nombre" name="nombre" placeholder="Su nombre"   ></ion-input>
+	      </ion-item>
+	      <ion-item *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty">
+	      	<p color="danger" ion-text *ngIf="myForm.get('nombre').hasError('required')">Nombre es obligatorio</p>
+	   	  </ion-item>
+
+
+
+	      <ion-item>
+	        <ion-label fixed>Documento</ion-label>
+	        <ion-input formControlName="documento"  type="text" [(ngModel)]="todo.documento" name="documento"  placeholder="Documento" ></ion-input>
+	      </ion-item>
+	      <ion-item *ngIf="myForm.get('documento').errors && myForm.get('documento').dirty">
+	      	<p color="danger" ion-text *ngIf="myForm.get('documento').hasError('required')">Documento es obligatorio</p>
+	   	  </ion-item>
+
+
+	       <ion-item>
+	   			<ion-label fixed>Email</ion-label>
+	    		<ion-input formControlName="email"   type="email"  [(ngModel)]="todo.email" name="email" placeholder="email"></ion-input>
+		  </ion-item>
+		  <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+	      	 <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Email es obligatorio</p>
+	     	 <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Esto no es un email</p>
+	      </ion-item>
+
+		  <ion-item>
+	        <ion-label fixed>Nro. Factura</ion-label>
+	        <ion-input formControlName="factura"  type="text" [(ngModel)]="todo.factura" name="factura" placeholder="Nro. Factura"></ion-input>
+	      </ion-item>
+	       <ion-item *ngIf="myForm.get('factura').errors && myForm.get('factura').dirty">
+	      	<p color="danger" ion-text *ngIf="myForm.get('factura').hasError('required')">Factura es obligatorio</p>
+	      	<p color="danger" ion-text *ngIf="myForm.get('factura').hasError('minlength')" >Factura 5 digitos</p>
+	   	  </ion-item>
+
+
+	       <ion-item>
+	        <ion-label fixed>Cod.Articulo</ion-label>
+	        <ion-input formControlName="articulo"  type="text" [(ngModel)]="todo.articulo" name="articulo" placeholder="Código Articulo"></ion-input>
+	      </ion-item>
+	       <ion-item *ngIf="myForm.get('articulo').errors && myForm.get('articulo').dirty">
+	      	<p color="danger" ion-text *ngIf="myForm.get('articulo').hasError('required')">Articulo es obligatorio</p>
+	      	<p color="danger" ion-text *ngIf="myForm.get('articulo').hasError('minLength')">Articulo 10 digitos</p>
+	   	  </ion-item>
+
+
+
+
+	 	  <div padding>
+	      	<button ion-button type="submit" [disabled]="myForm.invalid" block>Enviar</button>
+
+	      </div>
+
+
+    </form>
+
+		   <button ion-button  full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+ <div>
+
+
+
+
+
+   <ion-fab right bottom>
+
+    <button ion-fab ><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button (click)="presentToast()" ion-fab><ion-icon name="build"></ion-icon></button>
+      <button (click)="presentToast()" ion-fab><ion-icon name="calculator"></ion-icon></button>
+      <button (click)="presentToast()" ion-fab><ion-icon name="cart"></ion-icon></button>
+      <button (click)="presentToast()" ion-fab><ion-icon name="clipboard"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+ </div>
+
+
+
+</ion-content>
